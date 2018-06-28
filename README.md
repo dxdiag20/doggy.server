@@ -1,2 +1,5 @@
 # server
-서버
+
+## requirements
+Flask
+
