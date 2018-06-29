@@ -6,15 +6,8 @@ from doggyML.dog_classify import classify_image
 
 from waitress import serve
 
-import wikipedia
-wikipedia.set_lang("ko")
-
 def create_app(test_config=None):
     app = Flask(__name__)
-
-    @app.route('/', methods=['GET'])
-    def getDogBreeds():
-        return json.jsonify(breeds.dogBreeds)
 
     @app.route("/", methods=['POST'])
     def index():
@@ -26,15 +19,8 @@ def create_app(test_config=None):
         file.save(file.filename)
 
         breed = classify_image(file.filename)
-        page = wikipedia.page(breed)
-        description = page.content.split('\n')[0]
-        wiki_url = page.url
 
-        return json.jsonify({
-            'breed': breed,
-            'description': description,
-            'wiki_url': wiki_url
-        })
+        return breed
 
     @app.route('/static/<path:path>', methods=['GET'])
     def send_static(path):
