@@ -17,7 +17,7 @@ def create_app(test_config=None):
     def index():
         if not 'image' in request.files:
             content = {'error': 'please send an image'}
-            return content, 400
+            return json.jsonify(content), 400
        
         file = request.files['image']
         file.save(file.filename)
