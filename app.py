@@ -4,6 +4,8 @@ from flask import Flask, request, send_from_directory, json, jsonify
 import breeds
 from doggyML.dog_classify import classify_image
 
+from waitress import serve
+
 def create_app(test_config=None):
     app = Flask(__name__)
 
@@ -27,3 +29,5 @@ def create_app(test_config=None):
         return send_from_directory('static', path)
     
     return app
+
+serve(create_app(), listen='*:8080')
