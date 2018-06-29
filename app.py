@@ -1,8 +1,14 @@
 import os
-from flask import Flask, request, send_from_directory
+from flask import Flask, request, send_from_directory, json, jsonify
+
+import breeds
 
 def create_app(test_config=None):
     app = Flask(__name__)
+
+    @app.route('/', methods=['GET'])
+    def getDogBreeds():
+        return json.jsonify(breeds.dogBreeds)
 
     @app.route("/", methods=['POST'])
     def index():
