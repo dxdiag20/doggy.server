@@ -1,7 +1,6 @@
 import os
 from flask import Flask, request, send_from_directory, json, jsonify
 
-import breeds
 from doggyML.dog_classify import classify_image
 
 from waitress import serve
