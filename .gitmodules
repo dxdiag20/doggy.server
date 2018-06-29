@@ -1,0 +1,3 @@
+[submodule "doggyML"]
+	path = doggyML
+	url = https://github.com/openhack-Doggy/doggy.machine-learning
