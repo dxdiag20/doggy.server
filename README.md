@@ -14,5 +14,5 @@ A server that receive an image and respond with best-similar dog
 ## Deploying
 ```
 $ pip install -r requirements.txt
-$ waitress-serve --call 'app:create_app'
+$ python app.py
 ```
